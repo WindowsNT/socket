@@ -257,7 +257,11 @@ public:
 		return sendto(X, b, sz, 0, 0, 0);
 	}
 
-
+	int ureceive(char* b, int sz)
+	{
+		return recvfrom(X, b, sz, 0,0,0);
+	}
+	
 	int transmit(char *b, int sz, bool ForceAll = false, int p = 0, std::function<void(int)> cb = nullptr)
 	{
 		// same as send, but forces reading ALL sz
