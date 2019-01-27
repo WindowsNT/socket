@@ -157,7 +157,8 @@ public:
 		timeval tv = { 0 };
 		tv.tv_sec = sec;
 		wchar_t adr[1000] = { 0 };
-		wcscpy_s(adr, 1000, UWL::ystring(addr));
+		MultiByteToWideChar(CP_UTF8,0,addr,-1,adr,1000);
+//		wcscpy_s(adr, 1000, UWL::ystring(addr));
 		if (std::get<1>(proxy) == 0)
 			return WSAConnectByName(X, adr, se, 0, 0, 0, 0, sec ? &tv : 0, 0);
 
